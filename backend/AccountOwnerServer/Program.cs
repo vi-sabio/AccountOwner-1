@@ -1,10 +1,10 @@
 using NLog;
-using AccountOwnerServer.Extensions;
+using AccountOwenerServer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
-LoggerManager.LoadConfiguration(string.Concat(
+LogManager.LoadConfiguration(string.Concat(
     Directory.GetCurrentDirectory(),
     "/nlog.config"
 ));

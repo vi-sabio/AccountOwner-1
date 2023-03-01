@@ -1,5 +1,5 @@
-using Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Contracts;
 
 namespace AccountOwnerServer.Controllers;
 
@@ -18,13 +18,14 @@ public class WeatherForecastController : ControllerBase
     public IEnumerable<string> Get()
     {
         _logger.LogInfo("Testando o log de Info");
-         _logger.LogDebug("Testando o log de Debug");
-          _logger.LogError("Testando o log de Erro");
-           _logger.LogWarn("Testando o log de Aviso");
+        _logger.LogDebug("Testando o log de DeBug");
+        _logger.LogError("Testando o log de Erro");
+        _logger.LogWarn("Testando o log de Aviso");
         return new string[]
         {
-            "value1",
-            "value2"
+           "value1",
+           "value2"
         };
+
     }
 }

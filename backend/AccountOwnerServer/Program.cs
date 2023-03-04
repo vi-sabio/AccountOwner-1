@@ -1,5 +1,5 @@
 using NLog;
-using AccountOwenerServer.Extensions;
+using AccountOwnerServer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +13,7 @@ LogManager.LoadConfiguration(string.Concat(
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureMySqlContext(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

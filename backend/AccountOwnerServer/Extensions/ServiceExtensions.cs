@@ -2,6 +2,7 @@ using Contracts;
 using LoggerService;
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace AccountOwnerServer.Extensions
 {
@@ -9,9 +10,9 @@ namespace AccountOwnerServer.Extensions
     {
         public static void ConfigureCors(this IServiceCollection services)
         {
-            services.AddCors(options => 
+            services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", 
+                options.AddPolicy("CorsPolicy",
                     builder => builder
                     .AllowAnyOrigin()    // WithOrigins("dominio")
                     .AllowAnyMethod()    // WithMethods("POST", "GET")
@@ -31,12 +32,17 @@ namespace AccountOwnerServer.Extensions
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
-      public static void ConfigureMySQLContext(this IServiceCollection services, IConfiguration config)
+        public static void ConfigureMySQLContext(this IServiceCollection services, IConfiguration config)
         {
             var conn = config["mysqlconnection:connectionString"];
             services.AddDbContext<RepositoryContext>(
                 o => o.UseMySql(conn, ServerVersion.AutoDetect(conn))
             );
+        }
+
+        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
     }
 }

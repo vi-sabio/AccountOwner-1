@@ -31,13 +31,12 @@ namespace AccountOwnerServer.Extensions
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
-        public static void ConfigureMySqlContext(
-            ThreadStaticAttribute.IServiceCollection services, IConfiguration config)
-            {
-                var conn = config["mysqlconnectionString"];
-                services.AddDbContext<RepositoryContext>(
-                    o => o.UseMySql(conn,ServerVersion.AutoDetect(conn))
-                );
+      public static void ConfigureMySQLContext(this IServiceCollection services, IConfiguration config)
+        {
+            var conn = config["mysqlconnection:connectionString"];
+            services.AddDbContext<RepositoryContext>(
+                o => o.UseMySql(conn, ServerVersion.AutoDetect(conn))
+            );
         }
     }
 }

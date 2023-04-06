@@ -12,7 +12,7 @@ public class Owner
     [Required]
     [StringLength(60)]
     public string Name {get; set; }
-    public DateTime DataOfBirth {get; set; }
+    public DateTime DateOfBirth {get; set; }
 
     [Required]
     [StringLength(100)]

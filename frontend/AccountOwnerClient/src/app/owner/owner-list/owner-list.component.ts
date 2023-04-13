@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OwnerRepositoryService } from 'src/app/shared/services/owner-repository.service';
-import { Owner } from 'src/app/_interfaces/owner.model';
-
+import { Owner } from './../../_interfaces/owner.model';
+import { OwnerRepositoryService } from './../../shared/services/owner-repository.service';
 @Component({
   selector: 'app-owner-list',
   templateUrl: './owner-list.component.html',
@@ -9,19 +8,15 @@ import { Owner } from 'src/app/_interfaces/owner.model';
 })
 export class OwnerListComponent implements OnInit {
   owners: Owner[];
-
-  constructor(private repo: OwnerRepositoryService) { }
-
+  constructor(private repository: OwnerRepositoryService) { }
   ngOnInit(): void {
-    this.getAllOWner();
+    this.getAllOwners();
   }
-
-  private getAllOWner = () => {
+  private getAllOwners = () => {
     const apiAddress: string = 'api/owner';
-    this.repo.getOwners(apiAddress)
+    this.repository.getOwners(apiAddress)
       .subscribe(own => {
         this.owners = own;
       })
   }
-
 }

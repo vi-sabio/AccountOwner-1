@@ -5,7 +5,7 @@ namespace Entities.Models;
 
     [Table("account")]
     public class Account {
-    [Column("AccounId")]
+    [Column("AccountId")]
     public Guid Id {get; set; }
 
     [Required]

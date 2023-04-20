@@ -10,6 +10,9 @@ import { MenuComponent } from './menu/menu.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+
+
+import { DatePipe } from '@angular/common';
 import { OwnerModule } from './owner/owner.module';
 
 
@@ -29,7 +32,7 @@ import { OwnerModule } from './owner/owner.module';
     CollapseModule.forRoot(),
     OwnerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

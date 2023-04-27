@@ -14,6 +14,7 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
 
 import { DatePipe } from '@angular/common';
 import { OwnerModule } from './owner/owner.module';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 
 
 @NgModule({
